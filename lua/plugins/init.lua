@@ -31,5 +31,13 @@ return {
             -- Configuration here, or leave empty to use defaults
         })
     end
+  },
+  {
+    'stevearc/quicker.nvim',
+     event = "FileType qf",
+     ---@module "quicker",
+     ---@type quicker.SetupOptions,
+     opts = {}
   }
+
 }
