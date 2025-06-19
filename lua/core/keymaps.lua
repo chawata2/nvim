@@ -36,3 +36,6 @@ vim.keymap.set("n", "ge", "<cmd>Lspsaga show_line_diagnostics<CR>")
 vim.keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_next<CR>")
 vim.keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
 vim.keymap.set({ 'n', 't' }, '<A-d>', '<cmd>Lspsaga term_toggle<CR>')
+
+-- hop
+vim.keymap.set('n', "<leader>,", "<cmd>HopChar2<CR>")
