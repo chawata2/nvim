@@ -15,3 +15,4 @@ vim.opt.wrapscan = true
 vim.o.number = true
 -- vim.o.relativenumber = true
 vim.opt.cursorline = true
+vim.o.termguicolors = true
