@@ -13,7 +13,6 @@ return {
 		local luasnip = require("luasnip")
 		cmp.setup({
 			sources = {
-				{ name = "copilot" },
 				{ name = "nvim_lsp" },
 				{ name = "path" },
 				{ name = "buffer" },
@@ -84,4 +83,3 @@ return {
 		})
 	end,
 }
-
