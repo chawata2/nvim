@@ -19,9 +19,11 @@ return {
 		scroll = { enabled = true },
 		-- statuscolumn = { enabled = true },
 		-- words = { enabled = true },
-		lazygit = { enabled = true }
+		lazygit = { enabled = true },
+		gitbrowse = { enabled = true }
 	},
 	keys = {
 		{ "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
+		{ "<leader>gh", function() Snacks.gitbrowse() end, desc = "GitHubで開く" },
 	}
 }
