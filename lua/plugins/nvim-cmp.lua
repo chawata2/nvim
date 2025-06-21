@@ -38,11 +38,11 @@ return {
 				["<C-l>"] = cmp.mapping.complete(),
 				["<C-e>"] = cmp.mapping.abort(),
 				["<CR>"] = cmp.mapping(function(fallback)
-					if luasnip.expandable() then
-						luasnip.expand()
-					end
-
 					if cmp.visible() then
+						if luasnip.expandable() then
+							luasnip.expand()
+						else
+						end
 						local entry = cmp.get_selected_entry()
 						if entry then
 							-- 何か選択しているときだけ確定
@@ -51,6 +51,8 @@ return {
 							-- 未選択なら改行
 							fallback()
 						end
+					else
+						fallback()
 					end
 				end),
 				["<Tab>"] = cmp.mapping(function(fallback)
