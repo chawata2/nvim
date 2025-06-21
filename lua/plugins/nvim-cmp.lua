@@ -12,17 +12,17 @@ return {
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		cmp.setup({
-			sources = {
+			sources      = {
 				{ name = "nvim_lsp" },
 				{ name = "path" },
 				{ name = "buffer" },
 				{ name = "cmdline" },
 			},
-			window = {
+			window       = {
 				completion = cmp.config.window.bordered(),
 				documentation = cmp.config.window.bordered(),
 			},
-			snippet = {
+			snippet      = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
 				end,
@@ -30,22 +30,27 @@ return {
 			experimental = {
 				ghost_text = false,
 			},
-			mapping = cmp.mapping.preset.insert({
+			-- 自動選択を無効化（Enter 事故防止）
+			preselect    = cmp.PreselectMode.None,
+			mapping      = cmp.mapping.preset.insert({
 				["<C-p>"] = cmp.mapping.select_prev_item(),
 				["<C-n>"] = cmp.mapping.select_next_item(),
 				["<C-l>"] = cmp.mapping.complete(),
 				["<C-e>"] = cmp.mapping.abort(),
 				["<CR>"] = cmp.mapping(function(fallback)
+					if luasnip.expandable() then
+						luasnip.expand()
+					end
+
 					if cmp.visible() then
-						if luasnip.expandable() then
-							luasnip.expand()
+						local entry = cmp.get_selected_entry()
+						if entry then
+							-- 何か選択しているときだけ確定
+							cmp.confirm({ select = false })
 						else
-							cmp.confirm({
-								select = true,
-							})
+							-- 未選択なら改行
+							fallback()
 						end
-					else
-						fallback()
 					end
 				end),
 				["<Tab>"] = cmp.mapping(function(fallback)
