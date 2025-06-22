@@ -16,3 +16,5 @@ vim.o.number = true
 -- vim.o.relativenumber = true
 vim.opt.cursorline = true
 vim.o.termguicolors = true
+vim.opt.winblend = 0 -- ウィンドウの不透明度
+vim.opt.pumblend = 0 -- ポップアップメニューの不透明度
