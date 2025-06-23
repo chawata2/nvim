@@ -6,6 +6,7 @@ vim.keymap.set("n", "x", '"_x', { noremap = true, desc = "Delete character witho
 vim.keymap.set("n", "<Esc><Esc>", ":nohlsearch<CR>", { noremap = true, desc = "Clear search highlights" })
 
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "=", "<CMD>Oil .<CR>", { desc = "Oil ." })
 
 -- LSP
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
