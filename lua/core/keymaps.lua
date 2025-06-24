@@ -1,5 +1,6 @@
 -- Key mappings
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true, desc = "Exit insert mode" })
 vim.keymap.set("n", "x", '"_x', { noremap = true, desc = "Delete character without copying" })
@@ -24,3 +25,14 @@ vim.keymap.set('n', "<leader>,", "<cmd>HopChar2<CR>")
 
 -- ClaudeCode
 vim.keymap.set({ 'n', 't' }, '<C-_>', '<cmd>ClaudeCode<CR>', { desc = 'Toggle Claude Code' })
+
+-- grug-far
+vim.keymap.set('n', '<leader>s',
+	function()
+		require('grug-far').open({ prefills = { paths = vim.fn.expand('%') } }, { desc = "" })
+	end,
+	{ desc = 'grug-far: search current file' })
+vim.keymap.set('n', '<leader>S', function()
+		require('grug-far').open()
+	end,
+	{ desc = 'grug-far: search project' })
