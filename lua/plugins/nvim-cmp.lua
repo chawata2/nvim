@@ -5,16 +5,17 @@ return {
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-path",
-		"saadparwaiz1/cmp_luasnip",
 		"L3MON4D3/LuaSnip",
-		"rafamadriz/friendly-snippets"
+		"rafamadriz/friendly-snippets",
+		"saadparwaiz1/cmp_luasnip",
 	},
 	config = function()
-		require("luasnip.loaders.from_vscode").lazy_load()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
+		require("luasnip.loaders.from_vscode").lazy_load()
 		cmp.setup({
 			sources      = {
+				{ name = "luasnip" },
 				{ name = "nvim_lsp" },
 				{ name = "path" },
 				{ name = "buffer" },
@@ -39,42 +40,7 @@ return {
 				["<C-n>"] = cmp.mapping.select_next_item(),
 				["<C-Space>"] = cmp.mapping.complete(),
 				["<C-e>"] = cmp.mapping.abort(),
-				["<CR>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						if luasnip.expandable() then
-							luasnip.expand()
-						else
-						end
-						local entry = cmp.get_selected_entry()
-						if entry then
-							-- 何か選択しているときだけ確定
-							cmp.confirm({ select = false })
-						else
-							-- 未選択なら改行
-							fallback()
-						end
-					else
-						fallback()
-					end
-				end),
-				["<Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						cmp.select_next_item()
-					elseif luasnip.locally_jumpable(1) then
-						luasnip.jump(1)
-					else
-						fallback()
-					end
-				end, { "i", "s" }),
-				["<S-Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						cmp.select_prev_item()
-					elseif luasnip.locally_jumpable(-1) then
-						luasnip.jump(-1)
-					else
-						fallback()
-					end
-				end, { "i", "s" }),
+				["<CR>"] = cmp.mapping.confirm({ select = false }),
 			}),
 		})
 		cmp.setup.cmdline("/", {

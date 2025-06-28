@@ -1,7 +1,4 @@
 -- Key mappings
-vim.g.mapleader = " "
-vim.g.maplocalleader = ","
-
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true, desc = "Exit insert mode" })
 vim.keymap.set("n", "x", '"_x', { noremap = true, desc = "Delete character without copying" })
 vim.keymap.set("n", "<Esc><Esc>", ":nohlsearch<CR>", { noremap = true, desc = "Clear search highlights" })
@@ -36,3 +33,8 @@ vim.keymap.set('n', '<leader>S', function()
 		require('grug-far').open()
 	end,
 	{ desc = 'grug-far: search project' })
+
+-- LuaSnip
+local ls = require("luasnip")
+vim.keymap.set({ "i", "s" }, "<C-L>", function() ls.jump(1) end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-J>", function() ls.jump(-1) end, { silent = true })
