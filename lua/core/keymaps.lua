@@ -2,16 +2,12 @@
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true, desc = "Exit insert mode" })
 vim.keymap.set("n", "x", '"_x', { noremap = true, desc = "Delete character without copying" })
 vim.keymap.set("n", "<Esc><Esc>", ":nohlsearch<CR>", { noremap = true, desc = "Clear search highlights" })
-vim.keymap.set("n", "<C-j>", '10j', { noremap = true, desc = "Move 10j" })
-vim.keymap.set("n", "<C-k>", '10k', { noremap = true, desc = "Move 10k" })
+vim.keymap.set({ "n", "v" }, "<C-j>", '10j', { noremap = true, desc = "Move 10j" })
+vim.keymap.set({ "n", "v" }, "<C-k>", '10k', { noremap = true, desc = "Move 10k" })
 
 -- filer
-local MiniFiles = require("mini.files")
-vim.keymap.set("n", "-", function()
-	MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
-	MiniFiles.reveal_cwd()
-end, { desc = "Toggle into currently opend file" })
-vim.keymap.set("n", "=", "<CMD>lua MiniFiles.open()<CR>", { desc = "Toggle mini files" })
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "=", "<CMD>Oil .<CR>", { desc = "Oil ." })
 
 -- Telescope
 local telescope = require("telescope.builtin")
