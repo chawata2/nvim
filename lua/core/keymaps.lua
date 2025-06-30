@@ -59,7 +59,7 @@ vim.keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
 vim.keymap.set({ 'n', 't' }, '<A-d>', '<cmd>Lspsaga term_toggle<CR>')
 
 -- hop
-vim.keymap.set('n', "<leader>,", "<cmd>HopChar2<CR>")
+vim.keymap.set('n', "<leader><leader>", "<cmd>HopChar2<CR>")
 
 -- ClaudeCode
 vim.keymap.set({ 'n', 't' }, '<C-_>', '<cmd>ClaudeCode<CR>', { desc = 'Toggle Claude Code' })

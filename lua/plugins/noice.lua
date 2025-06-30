@@ -11,8 +11,8 @@ return
 				["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
 			},
 		},
-		cmdline  = { enabled = false },
-		messages = { enabled = false },
+		cmdline  = { enabled = true },
+		messages = { enabled = true },
 	},
 	dependencies = {
 		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
