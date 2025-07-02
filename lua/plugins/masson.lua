@@ -4,7 +4,8 @@ return {
 		opts = {
 			ensure_installed = {
 				"lua_ls",
-				"emmet_language_server"
+				"emmet_language_server",
+				"eslint"
 			}
 		},
 		dependencies = {
