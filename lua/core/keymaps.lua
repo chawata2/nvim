@@ -4,6 +4,7 @@ vim.keymap.set("n", "x", '"_x', { noremap = true, desc = "Delete character witho
 vim.keymap.set("n", "<Esc><Esc>", ":nohlsearch<CR>", { noremap = true, desc = "Clear search highlights" })
 vim.keymap.set({ "n", "v" }, "<C-j>", '10j', { noremap = true, desc = "Move 10j" })
 vim.keymap.set({ "n", "v" }, "<C-k>", '10k', { noremap = true, desc = "Move 10k" })
+vim.keymap.set("n", "<leader>n", "<cmd>set number!<CR>", { noremap = true, desc = "Toggle line number" })
 
 -- Exit terminal mode
 vim.keymap.set("t", "<C-[>", [[<C-\><C-n>]], { silent = true })
