@@ -10,7 +10,6 @@ return {
 		})
 		require("statuscol").setup({
 			segments = {
-				-- { text = { "%C" },                  click = "v:lua.ScFa" },
 				{ text = { builtin.foldfunc },      click = "v:lua.ScFa" }, -- Foldの描画を変更
 				{ text = { "%s" },                  click = "v:lua.ScSa" },
 				{ text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },

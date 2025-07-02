@@ -5,6 +5,9 @@ vim.keymap.set("n", "<Esc><Esc>", ":nohlsearch<CR>", { noremap = true, desc = "C
 vim.keymap.set({ "n", "v" }, "<C-j>", '10j', { noremap = true, desc = "Move 10j" })
 vim.keymap.set({ "n", "v" }, "<C-k>", '10k', { noremap = true, desc = "Move 10k" })
 
+-- Exit terminal mode
+vim.keymap.set("t", "<C-[>", [[<C-\><C-n>]], { silent = true })
+
 -- folding
 vim.keymap.set("n", "<leader>j", "za", { noremap = true, desc = "Toggle fold" })
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
