@@ -7,9 +7,6 @@ return {
 			background = "none",
 		},
 	},
-	keys = {
-		{ "<leader>n", "<cmd>NoNeckPain<CR>", desc = "Toggle Centered Layout" },
-	},
 	-- 起動時に自動で中央寄せ
 	init = function()
 		vim.api.nvim_create_autocmd("VimEnter", {

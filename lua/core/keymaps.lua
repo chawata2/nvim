@@ -59,6 +59,7 @@ vim.keymap.set("n", "<leader>fg", function() require('fzf-lua').live_grep_native
 vim.keymap.set("n", "<leader>fG", function() require('fzf-lua').live_grep_resume() end, opt)
 vim.keymap.set("v", "<leader>fg", function() require('fzf-lua').grep_visual() end, opt)
 vim.keymap.set("n", "<leader>fb", function() require('fzf-lua').buffers() end, opt)
+vim.keymap.set("n", "<leader>fq", function() require('fzf-lua').quickfix() end, opt)
 -- vim.keymap.set("n", "<leader>fs", function() require('fzf-lua').treesitter() end, opt)
 -- vim.keymap.set("n", "<leader>fl", function() require('fzf-lua').loclist() end, opt)
 
