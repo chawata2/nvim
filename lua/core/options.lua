@@ -26,6 +26,6 @@ vim.opt.pumblend = 0     -- ポップアップメニューの不透明度
 vim.opt.autoread = true  -- 外部変更を検出したら自動で読み直す
 vim.opt.updatetime = 200 -- CursorHold が発火しやすいように（デフォ 4000 ms）
 vim.api.nvim_create_autocmd(
-	{ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" },
-	{ pattern = "*", command = "checktime" }
+    { "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" },
+    { pattern = "*", command = "checktime" }
 )
