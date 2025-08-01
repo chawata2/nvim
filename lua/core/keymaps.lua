@@ -18,39 +18,6 @@ vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("n", "=", "<CMD>Oil .<CR>", { desc = "Oil ." })
 
--- Telescope
--- local telescope = require("telescope.builtin")
--- vim.keymap.set("n", "<leader>fg", telescope.live_grep, { desc = "Telescope live grep" })
--- vim.keymap.set("n", "<leader>fb", telescope.buffers, { desc = "Telescope buffers" })
--- vim.keymap.set("n", "<leader>fh", telescope.help_tags, { desc = "Telescope help tags" })
--- -- <C-h>で隠しファイルをトグルする
--- -- https://github.com/nvim-telescope/telescope.nvim/issues/2874#issuecomment-1900967890
--- local my_find_files
--- my_find_files = function(opts, no_ignore)
--- 	opts = opts or {}
--- 	no_ignore = vim.F.if_nil(no_ignore, false)
--- 	opts.attach_mappings = function(_, map)
--- 		map({ "n", "i" }, "<C-h>", function(prompt_bufnr) -- <C-h> to toggle modes
--- 			local prompt = require("telescope.actions.state").get_current_line()
--- 			require("telescope.actions").close(prompt_bufnr)
--- 			no_ignore = not no_ignore
--- 			my_find_files({ default_text = prompt }, no_ignore)
--- 		end)
--- 		return true
--- 	end
---
--- 	if no_ignore then
--- 		opts.no_ignore = true
--- 		opts.hidden = true
--- 		opts.prompt_title = "Find Files <ALL>"
--- 		require("telescope.builtin").find_files(opts)
--- 	else
--- 		opts.prompt_title = "Find Files"
--- 		require("telescope.builtin").find_files(opts)
--- 	end
--- end
--- vim.keymap.set("n", "<leader>ff", my_find_files)
-
 --fzf-lua
 local opt = { noremap = true, silent = true }
 vim.keymap.set("n", "<leader>e", function() require('fzf-lua').files() end, opt)
@@ -60,7 +27,7 @@ vim.keymap.set("n", "<leader>fG", function() require('fzf-lua').live_grep_resume
 vim.keymap.set("v", "<leader>fg", function() require('fzf-lua').grep_visual() end, opt)
 vim.keymap.set("n", "<leader>fb", function() require('fzf-lua').buffers() end, opt)
 vim.keymap.set("n", "<leader>fq", function() require('fzf-lua').quickfix() end, opt)
--- vim.keymap.set("n", "<leader>fs", function() require('fzf-lua').treesitter() end, opt)
+vim.keymap.set("n", "<leader>fs", function() require('fzf-lua').treesitter() end, opt)
 -- vim.keymap.set("n", "<leader>fl", function() require('fzf-lua').loclist() end, opt)
 
 -- LSP
@@ -82,14 +49,14 @@ vim.keymap.set({ 'n', 't' }, '<C-_>', '<cmd>ClaudeCode<CR>', { desc = 'Toggle Cl
 
 -- grug-far
 vim.keymap.set('n', '<leader>s',
-	function()
-		require('grug-far').open({ prefills = { paths = vim.fn.expand('%') } }, { desc = "" })
-	end,
-	{ desc = 'grug-far: search current file' })
+    function()
+        require('grug-far').open({ prefills = { paths = vim.fn.expand('%') } }, { desc = "" })
+    end,
+    { desc = 'grug-far: search current file' })
 vim.keymap.set('n', '<leader>S', function()
-		require('grug-far').open()
-	end,
-	{ desc = 'grug-far: search project' })
+        require('grug-far').open()
+    end,
+    { desc = 'grug-far: search project' })
 
 -- LuaSnip
 local ls = require("luasnip")

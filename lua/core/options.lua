@@ -1,14 +1,16 @@
 -- Neovim general settings
-vim.g.mapleader = " "
+vim.g.mapleader      = " "
 vim.g.maplocalleader = ","
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.mouse = "a"
-vim.opt.title = true
-vim.opt.helplang = "ja"
-vim.opt.visualbell = true
-vim.opt.showmatch = true
-vim.opt.matchtime = 1
+vim.opt.tabstop      = 4
+vim.opt.shiftwidth   = 4
+vim.opt.expandtab    = true -- タブ文字→スペースへ変換
+vim.opt.softtabstop  = 4    -- <Backspace> で 4 文字戻す
+vim.opt.mouse        = "a"
+vim.opt.title        = true
+vim.opt.helplang     = "ja"
+vim.opt.visualbell   = true
+vim.opt.showmatch    = true
+vim.opt.matchtime    = 1
 vim.opt.clipboard:append({ "unnamedplus" })
 vim.opt.hidden = true
 vim.opt.ignorecase = true
