@@ -29,3 +29,22 @@ vim.api.nvim_create_autocmd(
     { "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" },
     { pattern = "*", command = "checktime" }
 )
+
+-- theme
+-- vim.opt.background = "dark"
+-- vim.cmd.colorscheme('retrobox')
+--
+-- -- Bold フラグを落とす設定
+-- function bapply()
+--     -- 現在定義されている全ハイライトを取得
+--     for name, spec in pairs(vim.api.nvim_get_hl(0, {})) do
+--         if spec.bold then
+--             spec.bold = false -- bold フラグを落とす
+--             vim.api.nvim_set_hl(0, name, spec)
+--         end
+--     end
+-- end
+--
+-- vim.api.nvim_create_autocmd({ 'ColorScheme', 'VimEnter' }, {
+--     callback = bapply,
+-- })
